@@ -24,7 +24,6 @@ class HomeView(APIView):
 # Crear un usuario
 class CreateUserView(APIView):
     def post(self, request):
-        # Creamos el usuario con los datos proporcionados
         username = request.data.get("usuario")
         password = request.data.get("contraseña")
         email = request.data.get("correo")
@@ -63,7 +62,7 @@ class DeleteUserView(APIView):
         return Response({"message": f"Usuario {user.username} eliminado con éxito"}, status=status.HTTP_204_NO_CONTENT)
 
 
-# Vista para obtener las preferencias musicales de un usuario
+# Obtener las preferencias musicales de un usuario
 class MusicalPreferenceDetail(APIView):
     def get(self, request, user_id):
         try:
